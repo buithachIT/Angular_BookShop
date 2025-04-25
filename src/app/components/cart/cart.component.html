@@ -1,0 +1,43 @@
+<!-- cart.component.html -->
+<div class="cart-container">
+    <h2>Giỏ hàng của bạn</h2>
+    
+    <div *ngIf="(cartItems$ | async)?.length === 0" class="empty-cart">
+      Giỏ hàng của bạn đang trống
+    </div>
+    
+    <ng-container *ngIf="cartItems$ | async as items">
+      <div *ngFor="let item of items" class="cart-item">
+        <div class="item-image">
+          <img [src]="item.product.image || ''" [alt]="item.product.name || ''">
+        </div>
+        
+        <div class="item-info">
+          <h3>{{ item.product.name || 'Sản phẩm không xác định' }}</h3>
+          <p>Giá: {{ (item.product.price || 0) | CustomPipePrice }}</p>
+        </div>
+        
+        <div class="quantity-controls">
+          <button (click)="decrementQuantity(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="incrementQuantity(item)">+</button>
+        </div>
+        
+        <div class="item-total">
+          {{ ((item.product.price || 0) * item.quantity) | CustomPipePrice }}
+        </div>
+        
+        <button (click)="removeItem(item)" class="remove-btn">
+          Xóa
+        </button>
+      </div>
+      
+      <div class="cart-summary" *ngIf="items.length > 0">
+        <h3>Tổng cộng: {{ (totalPrice$ | async) || 0 | CustomPipePrice }}</h3>
+        <div class="cart-actions">
+          <button (click)="cartService.clearCart()" class="clear-btn">Xóa giỏ hàng</button>
+          <a routerLink="/checkout" class="checkout-btn">Thanh toán</a>
+        </div>
+      </div>
+    </ng-container>
+  </div>

@@ -1,0 +1,62 @@
+<div class="container w-100 d-flex justify-content-between">
+  <div class="filter">
+    <div class="filter-sort">
+      <label>Sắp xếp theo:</label>
+      <select (change)="onSortChange($event)">
+        <option value="price_desc">Giá giảm dần</option>
+        <option value="price_insc">Giá tăng dần</option>
+      </select>
+    </div>
+
+    <div class="filter-price-box mt-2">
+      <label>Lọc theo giá:</label><br>
+      <span class="mt-1">Từ</span><br>
+      <div class="filter-price-inputs">
+        <input type="number" [(ngModel)]="minPrice" placeholder="Giá từ"><br>
+        <span>đến</span><br>
+        <input type="number" [(ngModel)]="maxPrice" placeholder="Đến"><br>
+        <button class="mt-3" (click)="applyFilters()">Lọc</button>
+      </div>
+    </div>
+  </div>
+  <div class="group-card">
+
+    <h1>SẢN PHẨM</h1>
+    <!-- BỘ LỌC VÀ SẮP XẾP -->
+    <div class="product-card">
+      <div class="row-cart" *ngFor="let item of paginatedProducts">
+
+        <div class="product-image">
+          <a [routerLink]="['/products', item.id]">
+            <img
+              width="200px"
+              height="auto"
+              [src]="item.image"
+              [alt]="item.name" />
+          </a>
+        </div>
+        <div class="product-label">
+          <span class="product-name">{{ item.name | CustomNamePipe }}</span>
+        </div>
+
+        <!-- Giá-->
+        <div class="product-price">{{ item.price| CustomPipePrice }}</div>
+
+        <!-- Nút xem chi tiết -->
+        <div class="product-button">
+          <a [routerLink]="['/products', item.id]" class="product-button">
+            Xem chi tiết
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        (click)="changePage(i + 1)"
+        [class.active]="currentPage === i + 1">
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+</div>

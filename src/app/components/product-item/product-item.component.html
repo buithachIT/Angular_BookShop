@@ -1,0 +1,30 @@
+<div *ngIf="product">
+  <div class="product-detail">
+    <!-- Ảnh sản phẩm -->
+    <div class="product-image">
+      <img [src]="product.image" alt="{{ product.name }}">
+    </div>
+  
+    <!-- Thông tin sản phẩm -->
+    <div class="product-info">
+      <h2 class="product-name">Tên sản phẩm: {{ product.name}}</h2>
+      <p class="product-category">Thể loại: {{ product.category }}</p>
+      <p class="product-price">Giá: {{ product.price | CustomPipePrice }}</p>
+  
+      <!-- Số lượng -->
+      <div class="quantity">
+        <label for="quantity">Số lượng:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" />
+      </div>
+  
+      <!-- Nút thêm vào giỏ hàng -->
+      <!-- <button class="add-to-cart">Thêm vào giỏ hàng</button> {Changed by Tan} --> 
+      <button class="add-to-cart" (click)="addToCart()">Thêm vào giỏ hàng</button>
+
+      <p class="product-description">
+        Đây là một mô tả ngắn về sản phẩm. Nó cung cấp thông tin chi tiết và hấp dẫn về sản phẩm:
+        <br>{{product.describe}}
+      </p>
+    </div>
+  </div>
+  <h2></h2>

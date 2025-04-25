@@ -1,0 +1,167 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.navbar-nav {
+    margin: auto;
+}
+
+.nav-item {
+    padding: 0 10px;
+}
+
+.nav-link {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #007bff;
+}
+
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-item {
+        padding: 10px 0;
+    }
+
+    .search-box {
+        width: 80%;
+    }
+
+    .search-suggestions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.user-menu {
+    position: absolute;
+    top: 60px;
+    right: 90px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 200px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu ul li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.user-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.user-menu ul li:hover {
+    background: #f5f5f5;
+}
+
+.search-box {
+    position: absolute;
+    top: 60px;
+    left: 10%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 1000;
+}
+
+.search-box input {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-box button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #555;
+}
+
+/* Add these styles to your navbar.component.css */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-menu {
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-menu li {
+    padding: 8px 15px;
+}
+
+.user-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+.user-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}

@@ -1,0 +1,40 @@
+<div class="group-card">
+  <h2 *ngIf="categoryName" class="uppercase-heading">
+    THỂ LOẠI {{ categoryName }}
+  </h2>
+
+  <ng-container *ngIf="productsByCategory.length > 0; else noProducts">
+    <div class="product-card">
+      <div class="row-cart" *ngFor="let item of productsByCategory">
+        <div class="product-image">
+          <a [routerLink]="['/products', item.id]">
+            <img
+              width="200px"
+              height="auto"
+              [src]="item.image"
+              [alt]="item.name"
+            />
+          </a>
+        </div>
+
+        <div class="product-label">
+          <span class="product-name">{{ item.name | CustomNamePipe }}</span>
+        </div>
+
+        <div class="product-price">
+          {{ item.price | CustomPipePrice }}
+        </div>
+
+        <div class="product-button">
+          <a [routerLink]="['/products', item.id]">
+            Xem chi tiết
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noProducts>
+    <p>Không có sản phẩm nào trong thể loại này.</p>
+  </ng-template>
+</div>

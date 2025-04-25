@@ -1,0 +1,136 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+.group-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Căn giữa theo chiều ngang */
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Căn giữa các sản phẩm */
+  gap: 24px;
+  /* Khoảng cách giữa các sản phẩm */
+  max-width: 1200px;
+}
+
+.row-cart {
+  width: 200px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.row-cart:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 160px;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  /* màu nền giúp ảnh bị thiếu không quá xấu */
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Giữ ảnh lấp đầy khung, cắt phần dư nếu cần */
+}
+
+.product-label {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.product-price {
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 3px;
+  margin-bottom: 16px;
+  /* Tạo khoảng cách với nút bên dưới */
+  color: #e91e63;
+  /* tuỳ chỉnh màu nếu muốn nổi bật */
+}
+
+.product-button a {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #ee3333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  width: auto;
+  /* Chiều ngang sẽ nhỏ lại */
+  margin: 0 auto;
+}
+
+.product-button a:hover {
+  background-color: #eb7152;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container {
+  margin: 0;
+  padding-left: 350px;
+  width: 100%;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+
+.filter {
+  padding: 20px;
+  height: 200px;
+  position: fixed;
+  top: 140px;
+  left: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 0;
+  gap: 1rem;
+  width: 350px;
+}
+
+.filter-price input {
+  width: 100px;
+  margin: 0 4px;
+}
